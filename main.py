@@ -7,7 +7,7 @@ screen.bgcolor("black")
 screen.title("Pong game")
 screen.tracer(0)
 
-r_paddle = paddle.Paddle(paddle_side=" right")
+r_paddle = paddle.Paddle(paddle_side="right")
 l_paddle = paddle.Paddle(paddle_side="left")
 
 screen.listen()
