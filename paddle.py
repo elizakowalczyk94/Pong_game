@@ -12,16 +12,15 @@ class Paddle(Turtle):
         self.shapesize(stretch_wid=5, stretch_len=1)
         self.color("white")
         self.paddle_side = paddle_side.lower()
-        if paddle_side not in ["right", "left"]:
-            raise ValueError("Argument 'paddle_side' can be 'right' or 'left'.")
-        else:
-            self.choose_paddle_side(side=paddle_side)
+        self.choose_paddle_side(side=paddle_side)
 
     def choose_paddle_side(self, side):
         if side == "right":
             self.goto(350, 0)
         elif side == "left":
             self.goto(-350, 0)
+        else:
+            raise ValueError("Argument 'paddle_side' can be 'right' or 'left'.")
 
     def move_up(self):
         y_pos = self.ycor() + MOVE_DISTANCE
