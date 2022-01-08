@@ -24,3 +24,6 @@ class Ball(Turtle):
     def bounce_x(self):
         self.x_move *= -1
 
+    def change_ball_direction(self):
+        self.x_move *= -1
+        self.y_move *= -1
