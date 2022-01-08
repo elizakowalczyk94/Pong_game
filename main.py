@@ -19,7 +19,6 @@ screen.onkeypress(r_paddle.move_down, "Down")
 screen.onkeypress(l_paddle.move_up, "w")
 screen.onkeypress(l_paddle.move_down, "s")
 
-
 is_game_on = True
 is_bounce = False
 while is_game_on:
@@ -32,7 +31,17 @@ while is_game_on:
         ball.bounce_y()
 
     # Detect collision with paddles
-    if ball.distance(r_paddle) and ball.xcor() > 320 or ball.distance(l_paddle) and ball.xcor() < -320:
+    if ball.distance(r_paddle) < 50 and ball.xcor() > 320 or ball.distance(l_paddle) < 50 and ball.xcor() < -320:
         ball.bounce_x()
+
+    # Detect when R paddle misses ball
+    if ball.xcor() > 380:
+        ball.home()
+        ball.change_ball_direction()
+
+    # Detect when L paddle misses ball
+    if ball.xcor() < -380:
+        ball.home()
+        ball.change_ball_direction()
 
 screen.exitonclick()
