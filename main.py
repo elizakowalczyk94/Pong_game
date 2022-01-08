@@ -24,7 +24,7 @@ screen.onkeypress(l_paddle.move_down, "s")
 is_game_on = True
 is_bounce = False
 while is_game_on:
-    time.sleep(0.1)
+    time.sleep(ball.move_speed)
     screen.update()
     ball.move()
 
@@ -40,12 +40,14 @@ while is_game_on:
     if ball.xcor() > 380:
         scoreboard.l_point()
         ball.home()
+        ball.move_speed = 0.1
         ball.change_ball_direction()
 
     # Detect when L paddle misses ball
     if ball.xcor() < -380:
         scoreboard.r_point()
         ball.home()
+        ball.move_speed = 0.1
         ball.change_ball_direction()
 
 screen.exitonclick()
